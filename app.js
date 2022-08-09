@@ -30,7 +30,7 @@ app.get("/countries", function (req, res) {
   console.log("con");
   Country.find({}, function (err, attractions) {
     if (err) return console.log(err);
-    res.send(attractions);
+    res.send("test Hi");
   });
 });
 app.get("/cities", function (req, res) {

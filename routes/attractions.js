@@ -1,14 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const mongoose = require("mongoose");
-const attractionScheme = require("../schemas/attractionScheme");
-const Attraction = mongoose.model("Attraction", attractionScheme);
+const { getAttraction } = require("../controllers/attractionControllers");
 
-router.get("/attractions", function (req, res) {
-  Attraction.find({}, function (err, attraction) {
-    if (err) return console.log("", err);
-    res.send(attraction);
-  });
-});
+router.get("/attractions", getAttraction);
 
 module.exports = router;

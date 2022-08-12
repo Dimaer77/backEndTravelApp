@@ -1,14 +1,16 @@
 const express = require("express");
 const router = express.Router();
-const mongoose = require("mongoose");
-const hotelScheme = require("../schemas/hotelScheme");
-const Hotel = mongoose.model("Hotel", hotelScheme);
+const {
+  getHotels,
+  deleteHotelById,
+  postHotel,
+  getHotelById,
+  putHotel,
+} = require("../controllers/hotelControllers");
 
-router.get("/hotels", function (req, res) {
-  Hotel.find({}, function (err, hotels) {
-    if (err) return console.log("", err);
-    res.send(hotels);
-  });
-});
-
+router.get("/hotels", getHotels);
+router.get("/hotels/:id", getHotelById);
+router.delete("/hotels/:id", deleteHotelById);
+router.post("/hotels", postHotel);
+router.put("/hotels/:_id", putHotel);
 module.exports = router;

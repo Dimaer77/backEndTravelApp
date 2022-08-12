@@ -29,6 +29,4 @@ app.use(hotelsRoute);
 
 app.use(attractionsRoute);
 
-app.listen(PORT, function () {
-  console.log("Сервер ожидает подключения...");
-});
+app.listen(PORT);

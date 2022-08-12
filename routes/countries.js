@@ -1,14 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const mongoose = require("mongoose");
-const countryScheme = require("../schemas/countryScheme");
-const Country = mongoose.model("Country", countryScheme);
+const { getCountry } = require("../controllers/countyController");
 
-router.get("/", function (req, res) {
-  Country.find({}, function (err, countries) {
-    if (err) return console.log("", err);
-    res.send(countries);
-  });
-});
+router.get("/", getCountry);
 
 module.exports = router;
